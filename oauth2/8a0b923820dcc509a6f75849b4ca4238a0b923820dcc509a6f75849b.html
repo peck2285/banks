@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Loading...</title>
+  <!-- Add your preloader styles here -->
+  <style>
+    /* Style for the preloader */
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+    }
+
+    #preloader-spinner {
+      border: 8px solid #a63950;
+;
+      border-top: 8px solid #f3f3f3;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader-spinner"></div>
+
+  <script>
+    // Simulate a 5-second delay using setTimeout
+    setTimeout(function () {
+      // Redirect to page1.html after the delay
+      window.location.href = '4ca4238a0b923820dcc509a6f75849b4ca4238a0b923820dcc509a6f75849b.html';
+    }, 5000); // 5000 milliseconds (5 seconds) delay
+  </script>
+</body>
+
+</html>

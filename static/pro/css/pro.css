@@ -1,0 +1,28 @@
+/** by r00t3r **/
+/**
+h1 {
+	text-align: center;
+	font-size: 100px;
+	font-family: calibri;
+}
+**/
+#impotsgouv {
+padding:0;
+height:100pt;
+background-image: url("https://cfspro-idp.impots.gouv.fr/static/pro/images/Logo-Marianne+impots-gouv-fr.svg");
+background-size: contain;
+-webkit-background-size: contain;
+background-repeat:no-repeat;
+background-position:0%;
+}
+/**
+#impotsgouv {
+padding:0;
+height:50pt;
+background-image: url("../images/impots_gouv_fr_header-Sans fond.svg");
+background-size: contain;
+-webkit-background-size: contain;
+background-repeat:no-repeat;
+background-position:50%;
+}
+**/
