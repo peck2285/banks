@@ -1,0 +1,81 @@
+
+div#container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
+
+link {
+    display: none;
+}
+
+img {
+    border: 0;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+
+td {
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: top;
+}
+
+td {
+    display: table-cell;
+   
+}
+
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+
+
+td {
+    vertical-align: top;
+    text-align: right;
+}
+
+
+
+a, a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #222222;
+}
+
+
+.subFooterContainer {
+    width: 779px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

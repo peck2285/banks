@@ -1,0 +1,86 @@
+.loginContainer {
+    width: 779px;
+    text-align: left;
+}
+
+
+.accessPanel {
+    width: 380px;
+}
+
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: gray;
+    white-space: normal;
+    font-variant: normal;
+}
+
+.titoloLogin {
+    color: #222222;
+    text-align: left;
+    font-size: 14pt;
+    font-family: Arial, Verdana;
+}
+
+.accessPanel .accessPanelNord {
+    background: url(/images/accesso/accessPanel_NORD.png) no-repeat;
+}
+
+
+.accessPanelNord {
+    height: 8px;
+    padding: 0px;
+}
+
+
+.accessPanel {
+    width: 380px;
+}
+
+
+.sfondoHomePage {
+    margin-left: 0;
+    margin-right: auto;
+    width: 375px;
+    background: #F6F6F6;
+}
+
+
+.accessPanel .accessPanelSud {
+    background: url(/images/accesso/accessPanel_SUD.png) no-repeat;
+}
+
+
+.accessPanelSud {
+    height: 2px;
+    padding: 0px;
+}
+
+
+
+.helpPanel {
+    width: 380px;
+}
+
+
+.safetyPanel {
+    width: 370px;
+}
